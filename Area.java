@@ -1,0 +1,47 @@
+import java.util.*;
+
+abstract class Shape {
+    abstract void rectangleArea(double length, double breadth);
+    abstract void squareArea(double side);
+    abstract void circleArea(double radius);
+}
+
+class Area extends Shape {
+
+    void rectangleArea(double length, double breadth) {
+        double area = length * breadth;
+        System.out.println("Area of Rectangle: " + area);
+    }
+
+    void squareArea(double side) {
+        double area = side * side;
+        System.out.println("Area of Square: " + area);
+    }
+
+    void circleArea(double radius) {
+        double area = Math.PI * radius * radius;
+        System.out.println("Area of Circle: " + area);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        Shape obj = new Area();
+
+        System.out.print("Enter length and breadth of rectangle: ");
+        double length = sc.nextDouble();
+        double breadth = sc.nextDouble();
+        obj.rectangleArea(length, breadth);
+
+        System.out.print("Enter side of square: ");
+        double side = sc.nextDouble();
+        obj.squareArea(side);
+
+        System.out.print("Enter radius of circle: ");
+        double radius = sc.nextDouble();
+        obj.circleArea(radius);
+
+        sc.close();
+    }
+}
